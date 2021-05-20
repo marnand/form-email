@@ -24,13 +24,13 @@ function request(){
 
 function redirect($target){
 
-    return header("location:/dev-class/public/?page={$target}");
+    return header("location:/form-email/public/?page={$target}");
 
 }
 
 function redirectToHome(){
 
-    return header("location:/dev-class/public/");
+    return header("location:/form-email/public/");
 
 }
 

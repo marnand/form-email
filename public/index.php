@@ -11,6 +11,9 @@
 </head>
 <body>
 
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand pull-right" href="?page=contato">Contato</a>
+  </nav>
   <div class="container">
     <?php 
 
