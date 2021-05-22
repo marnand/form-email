@@ -11,10 +11,11 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand pull-right" href="?page=contato">Contato</a>
-  </nav>
   <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="?page">Início</a>
+    <a class="navbar-brand" href="?page=contato">Contato</a>
+  </nav>
     <?php 
 
       try {

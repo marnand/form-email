@@ -6,7 +6,7 @@ if (isEmpty()) {
 
     flash('message', 'Preencha todos os campos');
 
-    return redirect("contato");
+    return redirect("create_user");
 
 } 
 
@@ -21,9 +21,7 @@ $validate = validate([
 
 $cadastrado = create('users', $validate);
 
-dd($cadastrado);
-
-/* if ($cadastrado) {
+if ($cadastrado) {
     
     flash('message', 'Cadastrado com sucesso', 'success');
 
@@ -33,6 +31,6 @@ dd($cadastrado);
 
 flash('message', 'Erro ao cadastrar');
 
-redirect("create_user"); */
+redirect("create_user");
 
 ?>

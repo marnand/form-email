@@ -30,21 +30,75 @@ function create($table, $fields){
 
 }
 
-function update(){
+function getAll($table){
 
+    $pdo = connect();
+
+    $sql = "SELECT * FROM {$table}";
     
+    $list = $pdo->query($sql);
+
+    $list->execute();
+
+    return $list->fetchAll();
 
 }
 
-function find(){
+function update($table, $fields, $where){
 
+    if (!is_array($fields)) {
+        
+        $fields = (array) $fields;
+        
+    }
+
+    $pdo = connect();
     
+    $data = array_map(function($field) {
+        
+        return "{$field} = :{$field}";
+
+    }, array_keys($fields));
+
+    $sql = "UPDATE {$table} SET ";
+    $sql.= implode(',', $data);
+    $sql.= " WHERE {$where[0]} = :{$where[0]}";
+
+    $data = array_merge($fields, [$where[0] => $where[1]]);
+
+    $update = $pdo->prepare($sql);
+    $update->execute($data);
+
+    return $update->rowCount();
 
 }
 
-function delete(){
+function find($table, $field, $value){
 
-    
+    $pdo = connect();
+
+    $value = filter_var($value, FILTER_SANITIZE_NUMBER_INT);
+
+    $sql = "SELECT * FROM {$table} WHERE {$field} = :{$field}";
+
+    $find = $pdo->prepare($sql);
+    $find->bindValue($field, $value);
+    $find->execute();
+
+    return $find->fetch();
+
+}
+
+function delete($table, $field, $value){
+
+    $pdo = connect();
+
+    $sql = "DELETE FROM {$table} WHERE {$field} = :{$field}";
+
+    $delete = $pdo->prepare($sql);
+    $delete->bindValue($field, $value);
+
+    return $delete->execute();
 
 }
 

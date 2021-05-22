@@ -1,0 +1,15 @@
+===Base de Dados reg_users - utf-8_unicode_ci - InnoDB
+
+== Estrutura da tabela users
+
+|------
+|Coluna|Tipo|Nulo|Predefinido
+|------
+|//**Id**//|int(11)|Não|
+|name|varchar(100)|Não|
+|surname|varchar(100)|Não|
+|email|varchar(100)|Não|
+|password|varchar(255)|Não|
+== Extraindo dados da tabela users
+
+|1|Márnand|Fernandes|marnand@mail.com|123123
